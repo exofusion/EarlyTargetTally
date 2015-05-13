@@ -19,7 +19,7 @@ ETT is not simply a raw stats display that can be easily retrieved in a quick gl
  
 # The Developers
  
-Early Target Tally was developed by a two-person team, Ben Fischer and Ronnie Blackburn.  All Brainfuck code was written manually by Ben Fischer.  <b>No translators or converters were used at any point during this process.</b>  Ronnie Blackburn is responsible for the team's Brainfuck ASCII output optimization, as well as writing the core of the JavaScript interpreter.  Ben and Ronnie have coded several projects as a team, including <a href="http://urfsrevenge.com/">Urf's Revenge</a>, another application which utilizes Riot Games' League of Legends API.  
+Early Target Tally was developed by a two-person team, <a href="https://www.linkedin.com/in/bendfischer">Ben Fischer</a> and <a href="https://www.linkedin.com/in/ronnieblackburn">Ronnie Blackburn</a>.  All Brainfuck code was written manually by Ben Fischer.  <b>No translators or converters were used at any point during this process.</b>  Ronnie Blackburn is responsible for the team's Brainfuck ASCII output optimization, as well as writing the core of the JavaScript interpreter.  Ben and Ronnie have coded several projects as a team, including <a href="http://urfsrevenge.com/">Urf's Revenge</a>, another application which utilizes Riot Games' League of Legends API.  
  
 # Limitations
  
