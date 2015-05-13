@@ -35,6 +35,6 @@ We used the <i>matchhistory-v2.2</i> API endpoint, which means that only ranked 
  
 # Final Notes
  
-Much of ETT was initially developed using <a href="http://t-monster.com/apps/brainfuck_IDE">this public IDE</a>.  It also served as the inspiration for our modular interface.
+Much of ETT was initially developed using <a href="http://t-monster.com/apps/brainfuck_IDE">this public IDE</a>.  We found it to be highly useful and would certainly recommend it for any Brainfuck development.  It also served as the inspiration for our modular interface.
 
 Oh, and Sargonas... We like to think of ourselves as fair people; we aren't trying to exploit your challenge's possible reward by having a two-person team.  So, if you buy one of our tickets, we'll buy the other ;]
