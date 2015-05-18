@@ -1,0 +1,451 @@
+<html>
+<head>
+    <title>Early Target Tally</title>
+
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Maven+Pro" />
+    <style>
+    body {
+        background-image: url("./Images/diagmonds.png");
+
+        font-family: Maven Pro;
+        color: white;
+        text-align: center;
+    }
+
+    h1 {
+        margin-top: 15px;
+        margin-bottom: 30px;
+        font-size: 5em;
+    }
+
+    h3 {
+        font-size: 1.75em;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        padding: 0;
+    }
+
+    a:link, a:active, a:visited {
+        color: white;
+    }
+
+    textarea, input, select {
+        margin: 10px;
+        color: white;
+        background-color: #111111;
+    }
+
+    input, select {
+        font-size: 24px;
+        text-align: center;
+        border-width: 1px;
+    }
+
+    input[type=radio]{
+        transform: scale(1.5, 1.5);
+        margin: 5px 15px;
+    }
+
+    table {
+        margin: 10 auto;
+        border: 1px solid white;
+    }
+
+    td, th {
+        border: 1px solid gray;
+        text-align: center;
+        padding: 5px;
+    }
+
+    td {
+        width: 30px;
+    }
+
+    form {
+        margin: 0;
+        padding: 0;
+    }
+
+    button {
+        font-size: 16px;
+        font-weight: bold;
+        padding: 5px;
+        margin: 10px;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    .group {
+        border-radius: 25px;
+        margin: 20 auto;
+        padding: 10px;
+        width: 450px;
+        background: rgba(0, 0, 0, .4);
+    }
+
+    .inline-block {
+        display: inline-block;
+        margin: 5px;
+        vertical-align: top;
+    }
+
+    .output_box {
+        font-size: 15px;
+        text-align: center;
+    }
+
+    </style>
+</head>
+
+<body>
+<h1>Early Target Tally</h1>
+
+<a href="https://github.com/Exofusion/EarlyTargetTally" target="_blank"><h3>View Details on GitHub</h3></a>
+
+<div class="group">
+    <form action="javascript:fetchSummonerHistory()">
+    <h3>Enter Summoner Name</h3>
+
+    <input type="text" name="summonername" id="summonerName">
+    <select id="server">
+        <option>NA</option>
+        <option>BR</option>
+        <option>EUNE</option>
+        <option>EUW</option>
+        <option>KR</option>
+        <option>LAN</option>
+        <option>LAS</option>
+        <option>OCE</option>
+        <option>RU</option>
+        <option>TR</option>
+    </select>
+    <br>
+    <p><strong>Step 1</strong>: Retrieve summoner match history</p>
+    <button>Lookup Summoner</button>
+    </form>
+</div>
+
+<script>
+function apiRequest(theUrl)
+{
+	var xmlHttp = new XMLHttpRequest();
+	xmlHttp.open( "GET", theUrl, false );
+	xmlHttp.send( null );
+	return xmlHttp.responseText;
+}
+
+function getMatchHistory(summonerName)
+{
+	var requestUrl = "http://urfsrevenge.com/summoner_history?new_endpoint=true&server="+document.getElementById("server").value+"&name="+summonerName;
+	return apiRequest(requestUrl);
+}
+
+function fetchSummonerHistory()
+{
+	document.getElementById("input").value = getMatchHistory(document.getElementById("summonerName").value);
+}
+</script>
+
+<div class="group inline-block">
+    <h3>Brainfuck Source Code</h3>
+
+<!-- Version 2.4 -->
+<textarea id="bf_source_code" readonly="true" rows="10" cols="50">
++><[->>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++>+[>,>[-]<<<[>>->+<<<-]>>>[<<<+>>>-]<[>>]<[->>]<<]<[-]++++++++++++++++++++++++++++++++++++++++++++>+++++++++++++++++++++++++++++++++++++++++++++[>,>[-]<<<[>>->+<<<-]>>>[<<<+>>>-]<[>>]<[->>]<<]++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++>+++++++++++++++++[>,<-]>[-]<<>,>[-]<<[>->+<<-]>>[<<+>>-]<[>>]<[<<+>>>>]<[-]+[>,>[-]<<<<[>>>->+<<<<-]>>>>[<<<<+>>>>-]<[>>]<[->>]<<]+++++++++++++++++++[>,<-]>[-]<<>,>[-]<<[>->+<<-]>>[<<+>>-]<[>>]<[<<+>>>>]<[-]+[>,>[-]<<<<[>>>->+<<<<-]>>>>[<<<<+>>>>-]<[>>]<[->>]<<]+++++++++++++++++[>,<-]>[-]<<>,>[-]<<[>->+<<-]>>[<<+>>-]<[>>]<[<<+>>>>]<[-]+[>,>[-]<<<<[>>>->+<<<<-]>>>>[<<<<+>>>>-]<[>>]<[->>]<<]+++++++++++++++++++[>,<-]>[-]<<>,>[-]<<[>->+<<-]>>[<<+>>-]<[>>]<[<<+>>>>]<[-]+[>,>[-]<<<<[>>>->+<<<<-]>>>>[<<<<+>>>>-]<[>>]<[->>]<<]+++++++++++++++++++++[>,<-]>[-]<<>,>[-]<<[>->+<<-]>>[<<+>>-]<[>>]<[<<+>>>>]<[-]+[>,>[-]<<<<[>>>->+<<<<-]>>>>[<<<<+>>>>-]<[>>]<[->>]<<]+++++++++++++++++++++++[>,<-]>[-]<<>,>[-]<<[>->+<<-]>>[<<+>>-]<[>>]<[<<+>>>>]<[-]<[-]<[-]+++++++[>+++++++++++<-]>.[-]<++++++++[>++++++++++++<-]>+.[-]<+++++++++[>+++++++++++++<-]>-.[-]<+++++++++[>+++++++++++<-]>.[-]<++++++++[>+++++++++++++<-]>.[-]<++++[>++++++++<-]>.[-]<++++++++++++++++++++++++++++++++++++++++++++++++<<[>>+>+<<<-]>>>[<<<+>>>-]<.[-]+++++++[>++++++++<-]>++.[-]<++++[>++++++++<-]>.[-]<++++++++++++++++++++++++++++++++++++++++++++++++<[>+<-]>.[-]++++++++++.[-]<+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++>+++[>,>[-]<<<[>>->+<<<-]>>>[<<<+>>>-]<[>>]<[->>]<<][-]<[-]<++]
+</textarea>
+</div>
+
+<div class="group inline-block">
+    <h3>Brainfuck Input</h3>
+    <textarea id="input" rows="10" cols="50"></textarea>
+</div>
+
+<div style="display:block;"></div>
+
+<div class="group inline-block">
+    <h3>Brainfuck Interpreter</h3>
+    <form action="javascript:start_bf_interpreter()">
+    <p><strong>Step 2</strong>: Parse the API response</p>
+    <button id="start_button">Start Interpreter</button>
+    <br>
+    <input type="radio" id="speed_slow" name="speed" value="10000">Slow</input>
+    <input type="radio" id="speed_medium" name="speed" value="100000">Medium</input>
+    <input type="radio" id="speed_fast" name="speed" value="1000000" checked>Fast</input>
+    </form>
+
+    <table>
+        <tr>
+            <th>Cell Number</th>
+            <td>0</td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <th>Cell Value</th>
+            <td id ="cell0">0</td>
+            <td id ="cell1">0</td>
+            <td id ="cell2">0</td>
+            <td id ="cell3">0</td>
+            <td id ="cell4">0</td>
+            <td id ="cell5">0</td>
+        </tr>
+    </table>
+    <form action="javascript:stop_bf_interpreter()">
+    <button id="stop_button" disabled>Stop Interpreter</button>
+    </form>
+    <br>
+</div>
+
+<div class="group inline-block">
+    <h3>Brainfuck Output</h3>
+    <p>Display of how many first objectives
+    <br><em>(First Blood, First Tower, First Inhibitor)</em>
+    <br>the summoner participated in for each match</p>
+    <textarea id="output" class="output_box" rows="11"></textarea>
+</div>
+
+<br>
+<br>
+<br>
+<center><p style="width:800px;">Early Target Tally isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc. League of Legends &#169; Riot Games, Inc.</p></center>
+
+<script>
+/** This was written specifically to handle the brainfk code written by Ben
+        Fischer and Ronnie Blackburn for their project utilizing the Riot Games API.
+        If used for other purposes, we cannot guarantee it will do what you want or
+        adequately handle all errors/exceptions. **/
+ 
+/** This application isn't endorsed by Riot Games and doesn't reflect the views or
+        opinions of Riot Games or anyone officially involved in producing or managing
+        League of Legends.  League of Legends and Riot Games are trademarks or registered
+        trademarks of Riot Games, Inc.  League of Legends © Riot Games, Inc. **/
+ 
+function brainfk(bf_code)
+{
+    brainfk.kill = false;
+
+    // Variables
+    var cells = [], cell_index = 0;
+    cells[0] = 0;
+    var input = document.getElementById("input").value, input_index = 0;
+    var source_code = [], source_index = 0;
+    var output = '';
+    var loop_stack = [];
+    var end_of_input = false;
+    var output_box = document.getElementById("output");
+    output_box.value = '';
+
+    function parse(code)
+    {
+        // Parse the code
+        var parsed_array = [];
+        var c;
+       
+        for (var i = 0; i < bf_code.length; i++)
+        {
+            switch (bf_code.charAt(i))
+            {
+                case '+' : c = '+'; break;
+                case '-' : c = '-'; break;
+                case '<' : c = '<'; break;
+                case '>' : c = '>'; break;
+                case '.' : c = '.'; break;
+                case ',' : c = ','; break;
+                case '[' : c = '['; break;
+                case ']' : c = ']'; break;
+                default : c = -1; break;
+            }
+
+            // Don't push a character to parsed array if it isn't a BF operator
+            if (c != -1)
+                parsed_array.push(c);
+        }
+
+        return parsed_array;
+    } //[End function parse]
+
+    function enable_execution(bool_param)
+    {
+        if (bool_param)
+        {
+            document.getElementById("start_button").disabled = false;
+            document.getElementById("stop_button").disabled = true;
+            document.getElementById("speed_slow").disabled = false;
+            document.getElementById("speed_medium").disabled = false;
+            document.getElementById("speed_fast").disabled = false;
+        }
+        else
+        {
+            document.getElementById("start_button").disabled = true;
+            document.getElementById("stop_button").disabled = false;
+            document.getElementById("speed_slow").disabled = true;
+            document.getElementById("speed_medium").disabled = true;
+            document.getElementById("speed_fast").disabled = true;
+        }
+    }
+
+    function read(execution_speed)
+    {
+        function get_cell()
+        {
+            if (cells[cell_index] == undefined)
+                cells[cell_index] = 0;
+            return cells[cell_index];
+        }
+
+        function set_cell(value)
+        {
+            while (value < 0)
+            {
+                value += 256;
+            }
+            while (value > 255)
+            {
+                value -= 256;
+            }
+
+            cells[cell_index] = value;
+        }
+
+        function input_byte()
+        {
+            if (input_index == input.length)
+            {
+                end_of_input = true;
+                return 0;
+            }
+            else if (input.charCodeAt(input_index) > 255)
+                throw "Invalid character detected";
+            else
+                return input.charCodeAt(input_index++);
+        }
+
+        function stop_condition()
+        {
+            if (!brainfk.kill && source_index < source_code.length && !end_of_input)
+                return false;
+            else
+                return true;
+        }
+
+        //var max_execution_chunk = 10000;
+        var execution_chunk = execution_speed;
+
+        //while (source_index < source_code.length)
+        //{
+        while (!stop_condition() && execution_chunk > 0)
+        {
+            //console.log(source_index+': '+source_code[source_index]);
+            //console.log(loop_stack.length)
+
+            switch (source_code[source_index])
+            {
+                case '+' : set_cell((get_cell() + 1) /*& 0xFF?*/); break;
+                case '-' : set_cell((get_cell() - 1) /*& 0xFF?*/); break;
+                case '>' : cell_index++; break;
+                case '<' : cell_index--; break;
+                case '.' : output += String.fromCharCode(get_cell()); output_box.value = output; break;
+                case ',' : set_cell(input_byte()); break;
+                case '[' :
+                    if (get_cell() == 0)
+                    {
+                        var brace_count = 1;
+                        while ( brace_count > 0 && source_index < source_code.length )
+                        {
+                            source_index++;
+                            if ( source_code[source_index] == ']')
+                            {
+                                brace_count--;
+                            }
+                            if (source_code[source_index] == '[')
+                            {
+                                brace_count++;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        //console.log('[!=0')
+                        // push current source_index onto loop_stack, increment source_index by 1
+                        loop_stack.push(source_index);
+                    }
+                    break;
+                case ']' :
+                    if (get_cell() == 0)
+                    {
+                        //console.log(']==0')
+                        // simply increment input_index by 1, and pop from loop_stack
+                        loop_stack.pop();
+                    }
+                    else
+                    {
+                        //console.log(']!=0')
+                        // read last value on the loop_stack and set it to the source_index
+                        source_index = loop_stack[loop_stack.length-1];
+                    }
+                    break;
+                default : throw "Error reading parsed array."; break;
+            }
+
+            if (cells[cell_index] == undefined)
+            {
+                (cells[cell_index] = 0);
+            }
+            source_index++;
+            execution_chunk--;
+        }
+
+        for (i=0; i<6; i++)
+        {
+            if (cells[i] != undefined)
+            {
+                document.getElementById("cell"+i).innerHTML = cells[i];
+            }
+        }
+
+        if (!stop_condition())
+        {
+            setTimeout( function() {
+                            read(execution_speed);
+                        },0);
+        }
+        else
+        {
+            enable_execution(true);
+        }
+    } //[End function read]
+
+    enable_execution(false);
+    source_code = parse(bf_code);
+    console.log(source_code.join(''));
+    read(document.querySelector('input[name="speed"]:checked').value);
+} //[End function brainfk]
+
+function start_bf_interpreter()
+{
+    brainfk(document.getElementById("bf_source_code").value);
+}
+
+function stop_bf_interpreter()
+{
+    brainfk.kill = true;
+}
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-22934861-8', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>
